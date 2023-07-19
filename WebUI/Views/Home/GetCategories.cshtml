@@ -1,0 +1,23 @@
+﻿
+<div class="list-group">
+    @foreach (var item in TempData["result"] as List<CategoryModel>)
+    {
+        <a href="#" class="list-group-item list-group-item-action">@item.Name</a>
+    }
+  
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script>
+    $.ajax({
+        contentType: "application/json",
+        dataType: "json",
+        type: "get",
+        url: "https://localhost:44339/api/categories",
+        succes: function(func){
+            let w = jQyery.parseJSON(func);
+            console.log(w);
+        }
+    });
+</script>
